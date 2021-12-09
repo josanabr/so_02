@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 int main(int argc, char *argv[]) {
 	pid_t pid; // pid_t: pid type
@@ -11,6 +12,7 @@ int main(int argc, char *argv[]) {
 	} else if (pid == 0) {
 		printf("[%d] Soy el hijo\n",getpid());
 	} else {
+		wait(NULL);
 		printf("[%d] Soy el padre y mi hijo es %d\n",getpid(),pid);
 	}
 	printf("[%d] Segunda instruccion\n",getpid());
