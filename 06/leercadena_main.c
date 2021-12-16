@@ -19,6 +19,11 @@ int main(int argc, char *argv[]) {
   while (1) {
     printf("$ ");
     leer_de_teclado(BUFSIZ,comando);
+    if (strcmp(comando,"salir") == 0) { // comando == 'salir'
+      return 0;
+    } else if (strcmp(comando, "exit") == 0) {
+      return 1;
+    }
     pid = fork();
     if (pid == 0) {
       vector = de_cadena_a_vector(comando);
